@@ -15,11 +15,11 @@ public class BuyTest {
         driver = new FirefoxDriver();
         driver.get("http://www.rozetka.com.ua");
 
-        //type item name
+        //type item name bla bla bla
         driver.findElement(By.cssSelector("div[name='header-search-input-text-wrap']>input")).click();
         driver.findElement(By.cssSelector("div[name='header-search-input-text-wrap']>input")).sendKeys("розетка");
 
-        //click search
+        //click search bla
         driver.findElement(By.cssSelector("div[name='header-search-input-text-wrap']>input")).sendKeys(Keys.ENTER);
 
         //click on first item in search result
