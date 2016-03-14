@@ -26,7 +26,7 @@ public class BuyTest {
         driver.findElement(By.className("g-i-list-title")).click();
 
         //Get price from product page
-        String expectedPrice = driver.findElement(By.cssSelector("span[itemProp='price']")).getText();
+        String expectedPrice = driver.findElement(By.id("price_label")).getText();
 
         //Click "BUY"
         driver.findElement(By.cssSelector(".detail-buy-btn-link>button")).click();
