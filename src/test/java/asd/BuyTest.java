@@ -18,22 +18,15 @@ public class BuyTest {
 
         MainPage mainPage = new MainPage(driver);
         SearchResultPage searchResultPage = new SearchResultPage(driver);
-        ProductPage priceLabel = new ProductPage(driver);
+        ProductPage productPage = new ProductPage(driver);
 
         mainPage.open();
         mainPage.searchProduct("розетка");
         searchResultPage.searchResult();
-        priceLabel.PriceLabel();
-
-
-        //click on first item in search result
-
-
-        //Get price from product page
-        String expectedPrice
+        String expectedPrice = productPage.getPrice();
 
                 //Click "BUY"
-        driver.findElement(By.cssSelector(".detail-buy-btn-link>button")).click();
+        productPage.clickBuy();
 
         //Get price from cart
         String priceInCart = driver.findElement(By.cssSelector("span[name='cost']")).getText();
