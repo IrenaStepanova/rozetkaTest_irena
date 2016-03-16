@@ -4,29 +4,35 @@ package asd;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
+import java.util.concurrent.TimeUnit;
 
 public class BuyTest {
     private FirefoxDriver driver;
 
     @Test
-    public void testSum() {
+    public void testSum() throws InterruptedException {
         driver = new FirefoxDriver();
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         MainPage mainPage = new MainPage(driver);
+        SearchResultPage searchResultPage = new SearchResultPage(driver);
+        ProductPage priceLabel = new ProductPage(driver);
 
         mainPage.open();
         mainPage.searchProduct("розетка");
+        searchResultPage.searchResult();
+        priceLabel.PriceLabel();
 
 
         //click on first item in search result
-        driver.findElement(By.className("g-i-list-title")).click();
+
 
         //Get price from product page
-        String expectedPrice = driver.findElement(By.id("price_label")).getText();
+        String expectedPrice
 
-        //Click "BUY"
+                //Click "BUY"
         driver.findElement(By.cssSelector(".detail-buy-btn-link>button")).click();
 
         //Get price from cart
