@@ -13,14 +13,12 @@ public class BuyTest {
     @Test
     public void testSum() {
         driver = new FirefoxDriver();
-        driver.get("http://www.rozetka.com.ua");
 
-        //type item name123
-        driver.findElement(By.cssSelector("div[name='header-search-input-text-wrap']>input")).click();
-        driver.findElement(By.cssSelector("div[name='header-search-input-text-wrap']>input")).sendKeys("розетка");
+        MainPage mainPage = new MainPage(driver);
 
-        //click search bla
-        driver.findElement(By.cssSelector("div[name='header-search-input-text-wrap']>input")).sendKeys(Keys.ENTER);
+        mainPage.open();
+        mainPage.searchProduct("розетка");
+
 
         //click on first item in search result
         driver.findElement(By.className("g-i-list-title")).click();
