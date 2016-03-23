@@ -19,17 +19,14 @@ public class BuyTest {
         MainPage mainPage = new MainPage(driver);
         SearchResultPage searchResultPage = new SearchResultPage(driver);
         ProductPage productPage = new ProductPage(driver);
+        Cart cart = new Cart(driver);
 
         mainPage.open();
         mainPage.searchProduct("розетка");
         searchResultPage.searchResult();
         String expectedPrice = productPage.getPrice();
-
-                //Click "BUY"
         productPage.clickBuy();
-
-        //Get price from cart
-        String priceInCart = driver.findElement(By.cssSelector("span[name='cost']")).getText();
+        String priceInCart = cart.getPriceInCart();
 
         Assert.assertEquals(expectedPrice, priceInCart);
     }
